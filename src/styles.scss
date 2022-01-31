@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url(./assets/fonts/FoundersGrotesk-Bold.woff) format("woff");
+}
+
+:root {
+  --font-bold: "Founders Grotesk";
+  --font-color: #3b4260;
+  --color-bg: #ecf0f3;
+  --color-bg-dark: #292d32;
+}
+body {
+  background: var(--color-bg);
+  transition: all 0.2 ease-in;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-bold);
+  color: var(--font-color) !important;
+}
+
+p,
+li,
+input {
+  color: var(--font-color) !important;
+}
+
+.list-btn-search {
+  cursor: pointer;
+}
+
+.list-group-item.active {
+  color: var(--color-bg) !important;
+}
+
+.sugerencia {
+  cursor: pointer;
+}

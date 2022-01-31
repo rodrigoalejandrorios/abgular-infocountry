@@ -1,0 +1,23 @@
+<h2>Buscar por region</h2>
+<hr />
+<h4>Seleccione la region: {{ activeRegion | titlecase }}</h4>
+<div class="row">
+  <div class="col">
+    <button
+      (click)="onRegion(r)"
+      [class]="changeClass(r)"
+      *ngFor="let r of regions"
+    >
+      {{ r | titlecase }}
+    </button>
+  </div>
+</div>
+<div *ngIf="notFoundActive" class="alert alert-danger mt-4">
+  {{ messageError }}
+</div>
+<app-table-country
+  [results]="results"
+  [loading]="loading"
+  [notFoundActive]="notFoundActive"
+>
+</app-table-country>

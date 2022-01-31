@@ -1,0 +1,30 @@
+<table
+  *ngIf="!notFoundActive && results.length > 0 && !loading"
+  class="table table-hover animate__animated animate__fadeIn"
+>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Bandera</th>
+      <th scope="col">Poblacion</th>
+      <th scope="col">Conoce mas</th>
+    </tr>
+  </thead>
+  <tbody
+    class="animate__animated animate__fadeIn"
+    *ngFor="let r of results; let i = index"
+  >
+    <tr>
+      <th>{{ i + 1 }}</th>
+      <td>{{ r.capital }}, {{ r.name.common }}</td>
+      <td><img width="50" [src]="r.flags.png" /></td>
+      <td>{{ r.population | number }}</td>
+      <td>
+        <button (click)="toNavigate(r.cca2)" class="btn btn-primary">
+          Ver mas
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

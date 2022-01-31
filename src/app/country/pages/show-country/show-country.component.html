@@ -1,0 +1,36 @@
+<div *ngIf="loading" class="alert alert-info">espere por favor...</div>
+<div *ngIf="!loading" class="row">
+  <div class="col-12">
+    <h2>
+      Pais: <small>{{ getCountry.name.common }}</small>
+    </h2>
+    <hr />
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera:</h3>
+      <img width="350" [src]="getCountry.flags.png" />
+    </div>
+    <div class="col">
+      <h3>Informacion</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Poblacion:</strong> {{ getCountry.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Codigo numerico:</strong> {{ getCountry.area }}
+        </li>
+        <li class="list-group-item">
+          <strong>Codigo numerico:</strong> {{ getCountry.area }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span *ngFor="let t of trans" class="me-2 mt-2 badge bg-primary">{{
+        t
+      }}</span>
+    </div>
+  </div>
+</div>

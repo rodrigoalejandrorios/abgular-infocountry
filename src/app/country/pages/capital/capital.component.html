@@ -1,0 +1,29 @@
+<h2>Busquedas por capital</h2>
+<hr />
+<div class="row">
+  <div class="col mb-3">
+    <app-search-country
+      placeholder="Buscar por capital..."
+      (onSubmit)="goToSearch($event)"
+      (onRecords)="goRecords($event)"
+      (onDebounce)="recomended($event)"
+    ></app-search-country>
+  </div>
+</div>
+<div *ngIf="notFoundActive" class="alert alert-danger">
+  No se encontro resultado con la palabra {{ search }}
+</div>
+<div
+  *ngIf="loading && !notFoundActive && results.length === 0"
+  class="d-flex justify-content-center"
+>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<app-table-country
+  [results]="results"
+  [loading]="loading"
+  [notFoundActive]="notFoundActive"
+></app-table-country>

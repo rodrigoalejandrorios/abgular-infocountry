@@ -1,0 +1,28 @@
+<form (ngSubmit)="goToSearch()" class="row g-3" autocomplete="off">
+  <div class="col-10">
+    <input
+      name="search"
+      type="text"
+      class="form-control"
+      [placeholder]="placeholder"
+      [(ngModel)]="search"
+      (input)="keyPress()"
+    />
+  </div>
+  <div class="col">
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="submit">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+<button
+  *ngFor="let rc of getRecords"
+  (click)="goRecords(rc)"
+  type="button"
+  class="btn btn-primary mt-2 mx-1 btn-sm"
+>
+  {{ rc }}
+</button>

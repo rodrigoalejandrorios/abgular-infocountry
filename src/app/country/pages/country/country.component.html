@@ -1,0 +1,38 @@
+<h2>Busquedas por pais</h2>
+<hr />
+<div class="row">
+  <div class="col mb-3">
+    <app-search-country
+      placeholder="Buscar por pais..."
+      (onSubmit)="goToSearch($event)"
+      (onRecords)="goRecords($event)"
+      (onDebounce)="recommended($event)"
+    ></app-search-country>
+  </div>
+</div>
+<ul class="list-group">
+  <li
+    (click)="toNavigate(s.cca2)"
+    *ngFor="let s of countryRecommended"
+    class="list-group-item list-group-item-action sugerencia"
+  >
+    {{ s.name.common }}
+  </li>
+</ul>
+<div *ngIf="notFoundActive" class="alert alert-danger">
+  No se encontro resultado con la palabra {{ search }}
+</div>
+<div
+  *ngIf="loading && !notFoundActive && results.length === 0"
+  class="d-flex justify-content-center"
+>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<app-table-country
+  [results]="results"
+  [loading]="loading"
+  [notFoundActive]="notFoundActive"
+></app-table-country>
